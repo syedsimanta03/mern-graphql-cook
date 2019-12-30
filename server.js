@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require("path");
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 require('dotenv').config({ path: 'variables.env' });
@@ -63,7 +64,7 @@ db.on('open', () => console.info('Database connected!✨'));
 db.on('error', console.error.bind(console, 'MongoDB connection error:😢'));
 
 // GraphQL use Graphical UI
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+//app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 // Connect schema to GraphQL
 app.use(
   '/graphql',
@@ -77,6 +78,17 @@ app.use(
     }
   }))
 );
+
+// Deployment setup
+if (process.env.NODE_ENV === 'production') {
+  
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
+
+}
 
 const port = process.env.PORT || 4444;
 
