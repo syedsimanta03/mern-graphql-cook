@@ -24,12 +24,13 @@ const schema = makeExecutableSchema({
 const app = express();
 
 // Cors setup
-const corsOptions = {
+/* const corsOptions = {
   origin: 'http://localhost:3000',
   credentials: true
 };
 
-app.use(cors(corsOptions));
+app.use(cors(corsOptions)); */
+app.use(cors('*'));
 
 // Set up JWT authentication middleware for backend 
 app.use(async (req, res, next) => {
@@ -64,7 +65,7 @@ db.on('open', () => console.info('Database connected!✨'));
 db.on('error', console.error.bind(console, 'MongoDB connection error:😢'));
 
 // GraphQL use Graphical UI
-//app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 // Connect schema to GraphQL
 app.use(
   '/graphql',

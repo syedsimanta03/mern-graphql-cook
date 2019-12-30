@@ -24,6 +24,7 @@ import RecipePage from './components/Recipe/RecipePage';
 
 const client = new ApolloClient({
   // Pull data from the below uri
+  //uri: 'http://localhost:4444/graphql',
   uri: 'https://mern-cook.herokuapp.com/graphql',
   // Send localstorage token to DB
   fetchOptions: {
@@ -42,6 +43,7 @@ const client = new ApolloClient({
   // Error handeling
   onError: ({ networkError }) => {
     if (networkError) {
+      localStorage.setItem("token", "")
     }
   }
 });

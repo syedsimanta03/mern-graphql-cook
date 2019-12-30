@@ -85,11 +85,12 @@ exports.resolvers = {
     /* Add a recipe */
     addRecipe: async (
       root,
-      { name, description, category, instructions, username },
+      { name, imageUrl, description, category, instructions, username },
       { Recipe }
     ) => {
       const newRecipe = await new Recipe({
         name,
+        imageUrl,
         description,
         category,
         instructions,
@@ -97,6 +98,16 @@ exports.resolvers = {
       }).save();
 
       return newRecipe;
+    },
+
+    /* Update specific user recipe */
+    updateUserRecipe: async (root, {_id, name, imageUrl, category, description }, { Recipe }) => {
+      const updatedRecipe = await Recipe.findOneAndUpdate(
+        {_id},
+        { $set: { name, imageUrl, category, description } },
+        {new: true}
+      );
+      return updatedRecipe;
     },
 
     /* SignIN User */
