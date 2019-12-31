@@ -5,6 +5,10 @@
 
 [heroku]: https://mern-cook.herokuapp.com/
 
+​                                                  #React #GraphQL #Apollo #MongoDB #Express #Node 
+
+------
+
 
 
 ### All Links Here :link:
@@ -41,6 +45,8 @@ npm run dev
 - [x] State management patterns
 - [x] Animation 
 - [x] Deploy and redeploy full-stack React applications to the web
+
+![](.\apollo graphql.png)
 
 ## Show your support
 
