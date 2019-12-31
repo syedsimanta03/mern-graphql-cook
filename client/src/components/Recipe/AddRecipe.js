@@ -110,20 +110,24 @@ class AddRecipe extends Component {
                 className='form'
                 onSubmit={event => this.handleSubmit(event, addRecipe)}
               >
-                <input
-                  type='text'
-                  name='name'
-                  placeholder='Recipe Name'
-                  value={name}
-                  onChange={this.handleChange}
-                />
-                <input
-                  type='text'
-                  name='imageUrl'
-                  placeholder='Recipe Image'
-                  value={imageUrl}
-                  onChange={this.handleChange}
-                />
+                <div className='row'>
+                  <input
+                    className='six columns'
+                    type='text'
+                    name='name'
+                    placeholder='Recipe Name'
+                    value={name}
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    className='six columns'
+                    type='text'
+                    name='imageUrl'
+                    placeholder='Recipe Image'
+                    value={imageUrl}
+                    onChange={this.handleChange}
+                  />
+                </div>
                 <select
                   name='category'
                   onChange={this.handleChange}
@@ -135,6 +139,7 @@ class AddRecipe extends Component {
                   <option value='Snack'>Snack</option>
                 </select>
                 <input
+                  className='six columns'
                   type='text'
                   name='description'
                   placeholder='Add description'

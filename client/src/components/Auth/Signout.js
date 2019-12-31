@@ -1,7 +1,10 @@
 import React from 'react';
 import { ApolloConsumer } from 'react-apollo';
 import { withRouter } from 'react-router-dom';
+import Notiflix from 'notiflix-react';
 
+// Init the module you want to use. e.g. Notify Module
+Notiflix.Notify.Init({});
 
 const handleSignout = (client, history) => {
   // clear local storage token
@@ -10,6 +13,8 @@ const handleSignout = (client, history) => {
   client.resetStore();
   // Redirect to Home after Signout
   history.push('/');
+  // Show notification
+  Notiflix.Notify.Success('Logged Out');
 };
 
 const Signout = ({history}) => (

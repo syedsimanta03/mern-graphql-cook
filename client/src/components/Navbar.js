@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { Fragment } from 'react';
 import Signout from './../components/Auth/Signout';
 
+import Notiflix from 'notiflix-react';
+
+// Init the module you want to use. e.g. Notify Module
+Notiflix.Notify.Init({});
 
 const Navbar = ({ session }) => (
   <nav>
@@ -28,12 +32,13 @@ const NavbarAuth = ({ session }) => (
         <NavLink to='/profile'>Profile</NavLink>
       </li>
       <li>
-        <Signout/>
+        <Signout />
+      </li>
+      <li>
+        Welcome, <strong>{session.getCurrentUser.username}</strong>
       </li>
     </ul>
-    <h4>
-      Welcome, <strong>{session.getCurrentUser.username}</strong>
-    </h4>
+    <h4>{Notiflix.Notify.Success('Successfully logged in')}</h4>
   </Fragment>
 );
 

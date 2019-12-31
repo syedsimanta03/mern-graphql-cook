@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import './index.css';
 
+
 // Apollo Setup
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
@@ -21,6 +22,9 @@ import Search from './components/Recipe/Search';
 import AddRecipe from './components/Recipe/AddRecipe';
 import Profile from './components/Profile/Profile';
 import RecipePage from './components/Recipe/RecipePage';
+
+
+
 
 const client = new ApolloClient({
   // Pull data from the below uri
