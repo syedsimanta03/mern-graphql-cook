@@ -46,7 +46,7 @@ npm run dev
 - [x] Animation 
 - [x] Deploy and redeploy full-stack React applications to the web
 
-![](.\apollo graphql.png)
+![](https://github.com/syedsimanta03/mern-graphql-cook/blob/master/apollo%20graphql.png)
 
 ## Show your support
 
